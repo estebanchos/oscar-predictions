@@ -4,8 +4,17 @@ import { prisma } from "@/lib/prisma";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy } from "lucide-react";
+import { cookies } from 'next/headers';
+import { AdminAuthForm } from '@/components/admin-auth-form';
 
 export default async function AdminPage() {
+  const cookieStore = await cookies();
+  const isAuthenticated = cookieStore.get('admin-auth')?.value === 'true';
+
+  if (!isAuthenticated) {
+    return <AdminAuthForm />;
+  }
+
   // For simplicity, we're using the first admin user
   // In a real application, you would use authentication
   const adminUser = await prisma.user.findFirst({

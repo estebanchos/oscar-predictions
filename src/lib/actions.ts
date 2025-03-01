@@ -262,3 +262,13 @@ export async function getCategory(categoryId: string) {
     return { error: "Failed to fetch category" };
   }
 }
+
+export async function validateAdminPassword(password: string) {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  
+  if (!adminPassword) {
+    throw new Error('ADMIN_PASSWORD environment variable is not set');
+  }
+
+  return password === adminPassword;
+}

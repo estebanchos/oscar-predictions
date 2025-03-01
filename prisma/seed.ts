@@ -9,7 +9,7 @@ async function main() {
     update: {},
     create: {
       id: 'admin',
-      name: 'Carlos O',
+      name: 'Admin',
       isAdmin: true,
     },
   });
