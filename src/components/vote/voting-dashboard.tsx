@@ -1,17 +1,18 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import { submitVote } from "@/lib/actions";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { Category, User, VoteWithRelations } from "@/types";
+import { Category, Nominee, User, VoteWithRelations } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface VotingDashboardProps {
   user: User;
@@ -28,23 +29,18 @@ export function VotingDashboard({
 }: VotingDashboardProps) {
   const router = useRouter();
 
-  // State to track client-side votes (will be updated immediately after voting)
+
   const [votes, setVotes] = useState(initialVotes);
-
-  // State to track which categories have been skipped
   const [skippedCategoryIds, setSkippedCategoryIds] = useState<string[]>([]);
-
-  // State for the currently selected nominee
   const [selectedNomineeId, setSelectedNomineeId] = useState<string | null>(null);
-
-  // Loading state
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isComplete, setIsComplete] = useState<boolean>(false);
 
   // Get voted category IDs
   const votedCategoryIds = votes.map(vote => vote.categoryId);
 
   // Calculate the current category (first unskipped, unvoted category)
-  const getCurrentCategory = useCallback(() => {
+  const getCurrentCategory = useCallback((): Category | null => {
     // First try to find a category that hasn't been voted on or skipped
     const nextUnvotedUnskipped = categories.find(
       category =>
@@ -76,6 +72,13 @@ export function VotingDashboard({
 
   // Calculate progress
   const progress = (votes.length / categories.length) * 100;
+
+  useEffect(() => {
+    if (!currentCategory && votes.length === categories.length && categories.length > 0) {
+      setIsComplete(true);
+      router.push(`/vote/${user.id}/complete`);
+    }
+  }, [currentCategory, votes.length, categories.length, user.id, router]);
 
   // Handle skip button
   const handleSkip = () => {
@@ -152,10 +155,23 @@ export function VotingDashboard({
     }
   };
 
-  // Redirect to completion page if all votes are complete
-  if (!currentCategory && votes.length === categories.length && categories.length > 0) {
-    router.push(`/vote/${user.id}/complete`);
-    return null;
+  const handleRandomPick = useCallback(() => {
+    if (!currentCategory) return;
+
+    const nominees = currentCategory.nominees;
+    const randomIndex = Math.floor(Math.random() * nominees.length);
+    const randomNominee = nominees[randomIndex];
+
+    setSelectedNomineeId(randomNominee.id);
+  }, [currentCategory]);
+
+  if (isComplete) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <Loader2 className="h-8 w-8 animate-spin text-brand-primary" />
+        <span className="ml-2">Completing your ballot...</span>
+      </div>
+    );
   }
 
   return (
@@ -186,9 +202,12 @@ export function VotingDashboard({
                 <RadioGroup
                   value={selectedNomineeId || ""}
                   onValueChange={setSelectedNomineeId}
-                  className="space-y-4"
+                  className={(cn(
+                    currentCategory.nominees.length > 6 && 'grid grid-cols-2 gap-4',
+                    "space-y-4"
+                  ))}
                 >
-                  {currentCategory.nominees.map((nominee: any) => (
+                  {currentCategory.nominees.map((nominee: Nominee) => (
                     <div key={nominee.id} className="flex items-center space-x-4">
                       <RadioGroupItem
                         value={nominee.id}
@@ -208,7 +227,7 @@ export function VotingDashboard({
                         )}
                         <Label
                           htmlFor={nominee.id}
-                          className="flex-1 cursor-pointer font-medium"
+                          className="flex-1 cursor-pointer font-medium text-sm"
                         >
                           {nominee.name}
                         </Label>
@@ -216,19 +235,17 @@ export function VotingDashboard({
                     </div>
                   ))}
                 </RadioGroup>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="mt-4"
+                  onClick={handleRandomPick}
+                  disabled={isSubmitting}
+                >
+                  Pick Random Nominee
+                </Button>
 
                 <div className="mt-8 flex justify-between">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={handleSkip}
-                    className="flex items-center gap-2 border-brand-secondary text-brand-secondary"
-                    disabled={isSubmitting}
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                    Skip for Now
-                  </Button>
-
                   <Button
                     type="submit"
                     className="bg-brand-primary"
@@ -242,6 +259,16 @@ export function VotingDashboard({
                     ) : (
                       "Submit Vote"
                     )}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleSkip}
+                    className="flex items-center gap-2 border-brand-secondary text-brand-secondary"
+                    disabled={isSubmitting}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                    Skip for Now
                   </Button>
                 </div>
               </form>

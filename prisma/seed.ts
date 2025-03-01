@@ -305,7 +305,7 @@ async function main() {
           name: nomineeName,
           categoryId: createdCategory.id,
           // Add placeholder image URLs if needed
-          imageUrl: `https://placehold.co/400`,
+          imageUrl: `https://digitalreach.asia/wp-content/uploads/2021/11/placeholder-image.png`,
         },
       });
 
