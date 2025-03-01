@@ -1,7 +1,6 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
 import { userSchema, voteSchema, winnerSchema } from './validators';
 import { ActionResult } from '@/types';

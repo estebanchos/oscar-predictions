@@ -25,6 +25,7 @@ export function AdminAuthForm() {
       }
     } catch (error) {
       toast.error("An error occurred while validating the password.");
+      console.error("Error validating admin password:", error);
     } finally {
       setIsLoading(false);
     }

@@ -18,14 +18,12 @@ interface VotingDashboardProps {
   user: User;
   categories: Category[];
   votes: VoteWithRelations[];
-  nextCategory: Category | null;
 }
 
 export function VotingDashboard({
   user,
   categories,
   votes: initialVotes,
-  nextCategory,
 }: VotingDashboardProps) {
   const router = useRouter();
 

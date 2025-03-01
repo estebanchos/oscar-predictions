@@ -45,14 +45,14 @@ export default async function VoteCompletePage({ params }: VoteCompletePageProps
           <CardTitle className="text-2xl text-brand-primary">All Done!</CardTitle>
           <CardDescription>
             {allCategoriesVoted 
-              ? "You've completed your Oscar predictions for all categories." 
-              : "You've submitted some Oscar predictions, but not for all categories."}
+              ? `You've completed your Oscar predictions for all categories.` 
+              : `You've submitted some Oscar predictions, but not for all categories.`}
           </CardDescription>
         </CardHeader>
         <CardContent className="text-center">
           <p className="mb-2">
             <span className="font-bold">{user.name}</span>, 
-            you've voted for <span className="font-bold">{votesCount}</span> out of <span className="font-bold">{totalCategories}</span> categories.
+            you voted for <span className="font-bold">{votesCount}</span> out of <span className="font-bold">{totalCategories}</span> categories.
           </p>
           <p className="text-muted-foreground">
             Come back after the ceremony to see how well you did!

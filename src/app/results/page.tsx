@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { calculateScore } from "@/lib/utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { Trophy, Award } from "lucide-react";

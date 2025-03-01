@@ -69,7 +69,6 @@ export default async function UserVotingPage({ params }: UserVotingPageProps) {
       user={user}
       categories={sortedCategories}
       votes={votes}
-      nextCategory={nextCategory}
     />
   );
 }

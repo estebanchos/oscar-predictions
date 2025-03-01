@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Loader2, Award } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { setWinner } from "@/lib/actions";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { Category, Nominee } from "@/types";
 import { cn } from "@/lib/utils";
 
