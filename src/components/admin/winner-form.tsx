@@ -10,7 +10,8 @@ import { Loader2, Award } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { setWinner } from "@/lib/actions";
 import { Toaster, toast } from "sonner";
-import { Category } from "@/types";
+import { Category, Nominee } from "@/types";
+import { cn } from "@/lib/utils";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -73,11 +74,15 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
           <RadioGroup
             value={selectedNomineeId}
             onValueChange={setSelectedNomineeId}
-            className="space-y-4"
+            className={(cn(
+              category.nominees.length > 6 && 'grid grid-cols-2 gap-4',
+              "space-y-4"
+            ))}
           >
-            {category.nominees.map((nominee: any) => (
-              <div key={nominee.id} className="flex items-start space-x-4 border p-4 rounded-md">
+            {category.nominees.map((nominee: Nominee) => (
+              <div key={nominee.id} className="flex items-center space-x-4 border p-4 rounded-md">
                 <RadioGroupItem
+                  key={nominee.id}
                   value={nominee.id}
                   id={nominee.id}
                   className="h-5 w-5 mt-1 border-brand-primary text-brand-primary"
@@ -94,16 +99,6 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
                       </span>
                     )}
                   </Label>
-                  {nominee.imageUrl && (
-                    <div className="h-16 w-12 overflow-hidden rounded-sm relative flex-shrink-0">
-                      <Image
-                        src={nominee.imageUrl}
-                        alt={nominee.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
