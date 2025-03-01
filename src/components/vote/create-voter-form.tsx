@@ -6,11 +6,14 @@ import { userSchema, type UserFormValues } from "@/lib/validators";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { createUser } from "@/lib/actions";
-import { SubmitButton } from "./submit-button";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useFormStatus } from "react-dom";
+import { Button } from "../ui/button";
+import { Loader2 } from "lucide-react";
 
 export function CreateVoterForm() {
+  const { pending } = useFormStatus();
   const router = useRouter();
 
   const form = useForm<UserFormValues>({
@@ -54,7 +57,16 @@ export function CreateVoterForm() {
             </FormItem>
           )}
         />
-        <SubmitButton />
+        <Button type="submit" className="w-full bg-brand-primary" disabled={pending}>
+          {pending ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Creating...
+            </>
+          ) : (
+            "Start Voting"
+          )}
+        </Button>
       </form>
     </Form>
   );

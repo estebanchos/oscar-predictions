@@ -4,9 +4,10 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
 import { userSchema, voteSchema, winnerSchema } from './validators';
+import { ActionResult } from '@/types';
 
 // User Actions
-export async function createUser(formData: FormData) {
+export async function createUser(formData: FormData): Promise<ActionResult> {
   const name = formData.get('name') as string;
 
   // Validate the data
@@ -63,7 +64,7 @@ export async function getAllUsers() {
 }
 
 // Vote Actions
-export async function submitVote(formData: FormData) {
+export async function submitVote(formData: FormData): Promise<ActionResult> {
   const userId = formData.get('userId') as string;
   const categoryId = formData.get('categoryId') as string;
   const nomineeId = formData.get('nomineeId') as string;
@@ -131,7 +132,10 @@ export async function submitVote(formData: FormData) {
     });
 
     // Revalidate the user's voting page
-    revalidatePath(`/vote/${userId}`);
+    revalidatePath(`/vote/[userId]`, 'layout');
+    revalidatePath(`/vote/${userId}`, 'page');
+    revalidatePath(`/results`, 'layout');
+    revalidatePath(`/results/${userId}`, 'page');
 
     return { success: true, vote };
   } catch (error) {
@@ -164,7 +168,7 @@ export async function getUserVotes(userId: string) {
 }
 
 // Admin Actions
-export async function setWinner(formData: FormData) {
+export async function setWinner(formData: FormData): Promise<ActionResult> {
   const categoryId = formData.get('categoryId') as string;
   const nomineeId = formData.get('nomineeId') as string;
 
@@ -203,6 +207,9 @@ export async function setWinner(formData: FormData) {
     const category = await prisma.category.update({
       where: { id: categoryId },
       data: { winnerId: nomineeId },
+      include: {
+        nominees: true,
+      }
     });
 
     // Revalidate relevant paths

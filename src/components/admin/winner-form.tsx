@@ -10,13 +10,14 @@ import { Loader2, Award } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { setWinner } from "@/lib/actions";
 import { Toaster, toast } from "sonner";
+import { Category } from "@/types";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
-  
+
   return (
-    <Button 
-      type="submit" 
+    <Button
+      type="submit"
       className="w-full md:w-auto bg-brand-primary"
       disabled={pending}
     >
@@ -36,7 +37,7 @@ function SubmitButton() {
 }
 
 interface WinnerFormProps {
-  category: any;
+  category: Category;
   currentWinnerId: string;
 }
 
@@ -49,12 +50,12 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
       toast.error("Please select a winner");
       return;
     }
-    
+
     formData.append('categoryId', category.id);
     formData.append('nomineeId', selectedNomineeId);
-    
+
     const result = await setWinner(formData);
-    
+
     if (result.error) {
       toast.error(result.error);
     } else {
@@ -65,11 +66,10 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
 
   return (
     <div>
-      <Toaster position="top-center" />
       <form action={handleSubmit} className="space-y-8">
         <div className="space-y-4">
           <h3 className="text-lg font-medium">Select the winner:</h3>
-          
+
           <RadioGroup
             value={selectedNomineeId}
             onValueChange={setSelectedNomineeId}
@@ -83,16 +83,6 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
                   className="h-5 w-5 mt-1 border-brand-primary text-brand-primary"
                 />
                 <div className="flex flex-1 items-center space-x-4">
-                  {nominee.imageUrl && (
-                    <div className="h-16 w-12 overflow-hidden rounded-sm relative flex-shrink-0">
-                      <Image
-                        src={nominee.imageUrl}
-                        alt={nominee.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
                   <Label
                     htmlFor={nominee.id}
                     className="flex-1 cursor-pointer font-medium"
@@ -104,6 +94,16 @@ export function WinnerForm({ category, currentWinnerId }: WinnerFormProps) {
                       </span>
                     )}
                   </Label>
+                  {nominee.imageUrl && (
+                    <div className="h-16 w-12 overflow-hidden rounded-sm relative flex-shrink-0">
+                      <Image
+                        src={nominee.imageUrl}
+                        alt={nominee.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

@@ -2,7 +2,10 @@ import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { VotingDashboard } from "@/components/vote/voting-dashboard";
 import { sortCategoriesByOrder } from "@/lib/utils";
+import { VoteWithRelations } from "@/types";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 interface UserVotingPageProps {
   params: Promise< {
     userId: string;
@@ -43,7 +46,7 @@ export default async function UserVotingPage({ params }: UserVotingPageProps) {
       category: true,
       nominee: true,
     },
-  });
+  }) as VoteWithRelations[];
 
   // Get list of category IDs that the user has already voted on
   const votedCategoryIds = votes.map((vote) => vote.categoryId);
@@ -54,7 +57,7 @@ export default async function UserVotingPage({ params }: UserVotingPageProps) {
   // Find the next category that needs a vote
   const nextCategory = sortedCategories.find(
     (category) => !votedCategoryIds.includes(category.id)
-  );
+  ) || null;
 
   // If all categories have been voted on, redirect to completion page
   if (!nextCategory && votedCategoryIds.length === sortedCategories.length) {

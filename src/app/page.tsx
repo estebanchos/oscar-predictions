@@ -20,8 +20,8 @@ export default function Home() {
               Enter your name and predict winners for all 23 categories
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <p>Vote for your picks in each Oscar category and see how well you do when the winners are announced.</p>
+          <CardContent className="text-gray-800">
+            Vote for your picks in each Oscar category and see how well you do when the winners are announced.
           </CardContent>
           <CardFooter>
             <Link href="/vote" className="w-full">
@@ -37,8 +37,8 @@ export default function Home() {
               Check how everyone is scoring as winners are announced
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <p>See real-time scores and rankings as the winners are announced on Oscar night.</p>
+          <CardContent className="text-gray-800">
+            See real-time scores and rankings as the winners are announced on Oscar night.
           </CardContent>
           <CardFooter>
             <Link href="/results" className="w-full">
