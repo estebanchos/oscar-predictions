@@ -6,7 +6,7 @@ export default function VotePage() {
     <div className="container max-w-md mx-auto py-10">
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle>Enter Your Name</CardTitle>
+          <CardTitle className="text-brand-primary">Enter Your Name</CardTitle>
           <CardDescription>
             Create your voter profile to start making Oscar predictions
           </CardDescription>

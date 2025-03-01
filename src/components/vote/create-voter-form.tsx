@@ -1,19 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema, type UserFormValues } from "@/lib/validators";
-
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Loader2 } from "lucide-react";
+import { createUser } from "@/lib/actions";
+import { SubmitButton } from "./submit-button";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export function CreateVoterForm() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<UserFormValues>({
     resolver: zodResolver(userSchema),
@@ -23,30 +21,23 @@ export function CreateVoterForm() {
   });
 
   async function onSubmit(data: UserFormValues) {
-    setIsLoading(true);
-
     try {
-      const response = await fetch("/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const formData = new FormData();
+      formData.append('name', data.name);
 
-      if (!response.ok) {
-        throw new Error("Failed to create voter");
+      const result = await createUser(formData);
+
+      if (result.error) {
+        toast.error(result.error);
+      } else if (result.userId) {
+        // Handle the redirect on the client side
+        router.push(`/vote/${result.userId}`);
       }
-
-      const { id } = await response.json();
-      router.push(`/vote/${id}`);
     } catch (error) {
-      console.error("Error creating voter:", error);
-    } finally {
-      setIsLoading(false);
+      console.error("Error creating user:", error);
+      toast.error("Something went wrong. Please try again.");
     }
   }
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -63,16 +54,7 @@ export function CreateVoterForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Creating...
-            </>
-          ) : (
-            "Start Voting"
-          )}
-        </Button>
+        <SubmitButton />
       </form>
     </Form>
   );

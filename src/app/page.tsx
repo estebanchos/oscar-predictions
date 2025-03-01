@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center space-y-8 py-12">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Oscar Predictions 2025</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-brand-primary">Oscar Predictions 2025</h1>
         <p className="text-xl text-muted-foreground max-w-2xl">
           Predict the winners of the 2025 Academy Awards and see how your picks stack up!
         </p>
@@ -15,7 +15,7 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
         <Card className="shadow-md">
           <CardHeader>
-            <CardTitle>Make Your Predictions</CardTitle>
+            <CardTitle className="text-brand-primary">Make Your Predictions</CardTitle>
             <CardDescription>
               Enter your name and predict winners for all 23 categories
             </CardDescription>
@@ -25,14 +25,14 @@ export default function Home() {
           </CardContent>
           <CardFooter>
             <Link href="/vote" className="w-full">
-              <Button size="lg" className="w-full">Start Voting</Button>
+              <Button size="lg" className="w-full bg-brand-primary">Start Voting</Button>
             </Link>
           </CardFooter>
         </Card>
 
         <Card className="shadow-md">
           <CardHeader>
-            <CardTitle>View Leaderboard</CardTitle>
+            <CardTitle className="text-brand-primary">View Leaderboard</CardTitle>
             <CardDescription>
               Check how everyone is scoring as winners are announced
             </CardDescription>
@@ -42,7 +42,7 @@ export default function Home() {
           </CardContent>
           <CardFooter>
             <Link href="/results" className="w-full">
-              <Button size="lg" variant="outline" className="w-full">View Results</Button>
+              <Button size="lg" variant="outline" className="w-full border-brand-secondary text-brand-secondary">View Results</Button>
             </Link>
           </CardFooter>
         </Card>

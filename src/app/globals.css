@@ -123,7 +123,34 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .text-brand-primary  {
+    @apply text-[#BE7148]
+  }
+
+  .text-brand-secondary {
+    @apply text-[#546676];
+  }
+
+  .bg-brand-primary {
+    @apply bg-[#BE7148] text-primary-foreground;
+  }
+  
+  .bg-brand-secondary {
+    @apply bg-[#546676] text-primary-foreground;
+  }
+  
+  .border-brand-primary {
+    @apply border-[#BE7148];
+  }
+  
+  .border-brand-secondary {
+    @apply border-[#546676];
   }
 }
