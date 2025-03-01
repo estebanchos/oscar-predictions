@@ -79,7 +79,7 @@ export default async function UserResultsPage({ params }: UserResultsPageProps) 
       </div>
       
       <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold mb-2 text-brand-primary">{user.name}'s Predictions</h1>
+        <h1 className="text-3xl font-bold mb-2 text-brand-primary">{user.name} Predictions</h1>
         <p className="text-lg text-muted-foreground">
           {announcedCount === 0 ? (
             "Winners have not been announced yet. Check back during the ceremony!"

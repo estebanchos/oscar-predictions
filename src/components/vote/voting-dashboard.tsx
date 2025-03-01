@@ -175,7 +175,7 @@ export function VotingDashboard({
   return (
     <div className="container max-w-6xl mx-auto py-8">
       <div className="mb-8 text-center">
-        <h1 className="text-2xl font-bold text-brand-primary">{user.name}'s Oscar Predictions</h1>
+        <h1 className="text-2xl font-bold text-brand-primary">{user.name} Oscar Predictions</h1>
         <div className="mt-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium">
