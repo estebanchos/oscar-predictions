@@ -95,6 +95,22 @@ const nomineeImageMap: NomineeImageMap = {
 };
 
 async function main() {
+  const adminUser = await prisma.user.create({
+    data: {
+      name: 'Admin',
+      isAdmin: true,
+    },
+  })
+
+  const initialSetting = await prisma.globalSettings.create({
+    data: {
+      id: 'default',
+      votingEnabled: true,
+    },
+  });
+
+  console.log('created global settings:', initialSetting);
+
   // Oscar 2025 categories and nominees data
   const categories = [
     {

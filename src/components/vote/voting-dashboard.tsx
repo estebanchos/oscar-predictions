@@ -15,12 +15,14 @@ import { Category, Nominee, User, VoteWithRelations } from "@/types";
 import { cn } from "@/lib/utils";
 
 interface VotingDashboardProps {
+  votingEnabled: boolean;
   user: User;
   categories: Category[];
   votes: VoteWithRelations[];
 }
 
 export function VotingDashboard({
+  votingEnabled,
   user,
   categories,
   votes: initialVotes,
@@ -174,6 +176,18 @@ export function VotingDashboard({
 
     setSelectedNomineeId(randomNominee.id);
   }, [currentCategory]);
+
+  if (!votingEnabled) {
+    return (
+      <div className="container max-w-6xl mx-auto py-8">
+        <div className="text-center p-8 border rounded-lg shadow">
+          <p className="text-lg font-medium mb-4">
+            Voting is currently closed.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (isComplete) {
     return (

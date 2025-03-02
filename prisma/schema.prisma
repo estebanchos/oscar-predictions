@@ -13,6 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model GlobalSettings {
+  id             String   @id @default(cuid())
+  votingEnabled  Boolean  @default(true)
+  updatedAt      DateTime @updatedAt
+}
+
 model User {
   id        String   @id @default(cuid())
   name      String

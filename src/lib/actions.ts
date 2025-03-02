@@ -271,3 +271,50 @@ export async function validateAdminPassword(password: string) {
 
   return password === adminPassword;
 }
+
+export async function toggleVoting(formData: FormData): Promise<ActionResult> {
+  try {
+    // Get current settings or create if doesn't exist
+    const settings = await prisma.globalSettings.upsert({
+      where: {
+        id: 'default',
+      },
+      update: {
+        votingEnabled: formData.get('enabled') === 'true',
+      },
+      create: {
+        id: 'default',
+        votingEnabled: formData.get('enabled') === 'true',
+      },
+    });
+
+    // Revalidate relevant paths
+    revalidatePath('/admin');
+    revalidatePath('/vote');
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error toggling voting:", error);
+    return { error: "Failed to toggle voting" };
+  }
+}
+
+export async function getVotingStatus() {
+  try {
+    const settings = await prisma.globalSettings.findFirst({
+      where: {
+        id: 'default',
+      },
+      select:{
+        votingEnabled: true,
+      }
+    });
+
+    console.log('settings', settings);
+
+    return { votingEnabled: settings?.votingEnabled ?? true };
+  } catch (error) {
+    console.error("Error getting voting status:", error);
+    return { votingEnabled: true }; // Default to enabled if error
+  }
+}

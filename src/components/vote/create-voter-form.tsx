@@ -41,6 +41,7 @@ export function CreateVoterForm() {
       toast.error("Something went wrong. Please try again.");
     }
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

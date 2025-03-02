@@ -6,10 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Award, Trophy } from "lucide-react";
 import { cookies } from 'next/headers';
 import { AdminAuthForm } from '@/components/admin-auth-form';
+import { getVotingStatus } from "@/lib/actions";
+import { VotingToggle } from "@/components/admin/voting-toggle";
 
 export default async function AdminPage() {
   const cookieStore = await cookies();
   const isAuthenticated = cookieStore.get('admin-auth')?.value === 'true';
+  const { votingEnabled } = await getVotingStatus();
 
   if (!isAuthenticated) {
     return <AdminAuthForm />;
@@ -30,9 +33,9 @@ export default async function AdminPage() {
   const usersCount = await prisma.user.count({
     where: { isAdmin: false },
   });
-  
+
   const votesCount = await prisma.vote.count();
-  
+
   const totalCategories = await prisma.category.count();
   const categoriesWithWinners = await prisma.category.count({
     where: { winnerId: { not: null } },
@@ -40,11 +43,12 @@ export default async function AdminPage() {
 
   return (
     <div className="container mx-auto py-10">
-      <div className="text-center mb-8">
+      <div className="mb-8 space-y-2">
         <h1 className="text-3xl font-bold text-brand-primary">Admin Dashboard</h1>
-        <p className="text-lg text-muted-foreground mt-2">
+        <p className="text-lg text-muted-foreground mb-4">
           Manage categories, winners, and view statistics
         </p>
+        <VotingToggle initialEnabled={votingEnabled} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -56,7 +60,7 @@ export default async function AdminPage() {
             <p className="text-3xl font-bold">{usersCount}</p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-brand-primary">Total Votes</CardTitle>
@@ -65,7 +69,7 @@ export default async function AdminPage() {
             <p className="text-3xl font-bold">{votesCount}</p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-brand-primary">Winners Announced</CardTitle>

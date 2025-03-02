@@ -3,18 +3,18 @@ import { prisma } from "@/lib/prisma";
 import { VotingDashboard } from "@/components/vote/voting-dashboard";
 import { sortCategoriesByOrder } from "@/lib/utils";
 import { VoteWithRelations } from "@/types";
+import { getVotingStatus } from "@/lib/actions";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 interface UserVotingPageProps {
-  params: Promise< {
+  params: Promise<{
     userId: string;
   }>;
 }
 
 export default async function UserVotingPage({ params }: UserVotingPageProps) {
   const { userId } = await params;
-
   // Fetch user
   const user = await prisma.user.findUnique({
     where: { id: userId },
@@ -29,6 +29,8 @@ export default async function UserVotingPage({ params }: UserVotingPageProps) {
   if (user.isAdmin) {
     redirect("/admin");
   }
+
+  const { votingEnabled } = await getVotingStatus();
 
   // Fetch all categories
   const categories = await prisma.category.findMany({
@@ -69,6 +71,7 @@ export default async function UserVotingPage({ params }: UserVotingPageProps) {
       user={user}
       categories={sortedCategories}
       votes={votes}
+      votingEnabled={votingEnabled}
     />
   );
 }
