@@ -292,7 +292,7 @@ export async function toggleVoting(formData: FormData): Promise<ActionResult> {
     revalidatePath('/admin');
     revalidatePath('/vote');
 
-    return { success: true };
+    return { success: !!settings.id };
   } catch (error) {
     console.error("Error toggling voting:", error);
     return { error: "Failed to toggle voting" };

@@ -30,6 +30,7 @@ export function VotingToggle({ initialEnabled }: VotingToggleProps) {
       }
     } catch (error) {
       toast.error("Failed to toggle voting");
+      console.error("Error toggling voting:", error);
     } finally {
       setIsSubmitting(false);
     }
