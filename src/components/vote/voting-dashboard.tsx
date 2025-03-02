@@ -214,12 +214,12 @@ export function VotingDashboard({
                       />
                       <div className="flex flex-1 items-center space-x-4">
                         {nominee.imageUrl && (
-                          <div className="h-16 w-12 overflow-hidden rounded-sm relative flex-shrink-0">
+                          <div className="h-28 w-28 overflow-hidden rounded-sm relative flex-shrink-0">
                             <Image
                               src={nominee.imageUrl}
                               alt={nominee.name}
                               fill
-                              className="object-cover"
+                              className="object-contain"
                             />
                           </div>
                         )}
