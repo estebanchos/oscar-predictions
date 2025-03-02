@@ -26,20 +26,17 @@ export function VotingDashboard({
   votes: initialVotes,
 }: VotingDashboardProps) {
   const router = useRouter();
-
-
   const [votes, setVotes] = useState(initialVotes);
   const [skippedCategoryIds, setSkippedCategoryIds] = useState<string[]>([]);
   const [selectedNomineeId, setSelectedNomineeId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState<boolean>(false);
+  const [votingHistory, setVotingHistory] = useState<string[]>([]); // Track category IDs in order
 
   // Get voted category IDs
   const votedCategoryIds = votes.map(vote => vote.categoryId);
 
-  // Calculate the current category (first unskipped, unvoted category)
   const getCurrentCategory = useCallback((): Category | null => {
-    // First try to find a category that hasn't been voted on or skipped
     const nextUnvotedUnskipped = categories.find(
       category =>
         !votedCategoryIds.includes(category.id) &&
@@ -50,7 +47,6 @@ export function VotingDashboard({
       return nextUnvotedUnskipped;
     }
 
-    // If all categories are voted or skipped, find the first skipped one
     const nextSkipped = categories.find(
       category =>
         !votedCategoryIds.includes(category.id) &&
@@ -65,10 +61,7 @@ export function VotingDashboard({
     return null;
   }, [categories, votedCategoryIds, skippedCategoryIds]);
 
-  // Get the current category to display
   const currentCategory = getCurrentCategory();
-
-  // Calculate progress
   const progress = (votes.length / categories.length) * 100;
 
   useEffect(() => {
@@ -88,6 +81,22 @@ export function VotingDashboard({
     // Reset selected nominee
     setSelectedNomineeId(null);
   };
+
+  // Handle going back to previous vote
+  const handlePreviousVote = useCallback(() => {
+    if (votingHistory.length === 0) return;
+
+    const lastCategoryId = votingHistory[votingHistory.length - 1];
+
+    const previousVote = votes.find(vote => vote.categoryId === lastCategoryId);
+
+    // Remove the last vote
+    setVotes(prev => prev.filter(vote => vote.categoryId !== lastCategoryId));
+    // Remove from history
+    setVotingHistory(prev => prev.slice(0, -1));
+    // Reset selected nominee
+    setSelectedNomineeId(previousVote?.nomineeId || null);
+  }, [votingHistory]);
 
   // Handle vote submission
   const handleSubmitVote = async (e: React.FormEvent) => {
@@ -134,6 +143,9 @@ export function VotingDashboard({
         };
 
         setVotes(prev => [...prev, newVote]);
+
+        // Add to voting history
+        setVotingHistory(prev => [...prev, currentCategory.id]);
 
         // Remove the category from skipped if it was there
         if (skippedCategoryIds.includes(currentCategory.id)) {
@@ -190,10 +202,20 @@ export function VotingDashboard({
       {currentCategory ? (
         <div className="space-y-6">
           <div className="shadow-lg rounded-lg border bg-card text-card-foreground">
-            <div className="bg-muted/30 p-6 py-4 rounded-t-lg border-b">
-              <h3 className="text-center text-xl text-brand-primary font-semibold">
+            <div className="bg-muted/30 p-6 py-4 rounded-t-lg border-b flex flex-col gap-4 sm:flex-row justify-between items-center">
+              <h3 className="text-xl text-brand-primary font-semibold">
                 {currentCategory.name}
               </h3>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleSkip}
+                className="flex w-full sm:w-fit items-center gap-2 border-brand-secondary text-brand-secondary"
+                disabled={isSubmitting}
+              >
+                Skip for Now
+                <ChevronRight className="h-4 w-4" />
+              </Button>
             </div>
             <div className="p-6 pt-6">
               <form onSubmit={handleSubmitVote}>
@@ -201,7 +223,7 @@ export function VotingDashboard({
                   value={selectedNomineeId || ""}
                   onValueChange={setSelectedNomineeId}
                   className={(cn(
-                    currentCategory.nominees.length > 6 && 'grid grid-cols-2 gap-4',
+                    currentCategory.nominees.length > 6 && 'grid grid-cols-1 sm:grid-cols-2 gap-4',
                     "space-y-4"
                   ))}
                 >
@@ -233,41 +255,42 @@ export function VotingDashboard({
                     </div>
                   ))}
                 </RadioGroup>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="mt-4"
-                  onClick={handleRandomPick}
-                  disabled={isSubmitting}
-                >
-                  Pick Random Nominee
-                </Button>
 
-                <div className="mt-8 flex justify-between">
-                  <Button
-                    type="submit"
-                    className="bg-brand-primary"
-                    disabled={!selectedNomineeId || isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      "Submit Vote"
-                    )}
-                  </Button>
+                <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4 w-full">
                   <Button
                     type="button"
-                    variant="outline"
-                    onClick={handleSkip}
-                    className="flex items-center gap-2 border-brand-secondary text-brand-secondary"
+                    variant="secondary"
+                    // className="border-brand-secondary"
+                    onClick={handleRandomPick}
                     disabled={isSubmitting}
                   >
-                    <ChevronRight className="h-4 w-4" />
-                    Skip for Now
+                    Pick Random Nominee
                   </Button>
+                  <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-4 w-full">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handlePreviousVote}
+                      disabled={votingHistory.length === 0 || isSubmitting}
+                      className="border-brand-secondary text-brand-secondary w-full sm:w-fit"
+                    >
+                      Previous Vote
+                    </Button>
+                    <Button
+                      type="submit"
+                      className="bg-brand-primary w-full sm:w-fit"
+                      disabled={!selectedNomineeId || isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Submit Vote"
+                      )}
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>
