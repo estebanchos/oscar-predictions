@@ -249,7 +249,7 @@ export function VotingDashboard({
                         className="h-5 w-5 border-brand-primary text-brand-primary"
                       />
                       <div className="flex flex-1 items-center space-x-4">
-                        {nominee.imageUrl && (
+                        {/* {nominee.imageUrl && (
                           <div className="h-28 w-28 overflow-hidden rounded-sm relative flex-shrink-0">
                             <Image
                               src={nominee.imageUrl}
@@ -258,7 +258,7 @@ export function VotingDashboard({
                               className="object-contain"
                             />
                           </div>
-                        )}
+                        )} */}
                         <Label
                           htmlFor={nominee.id}
                           className="flex-1 cursor-pointer font-medium text-sm"
