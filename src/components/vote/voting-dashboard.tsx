@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import Image from "next/image";
+// import Image from "next/image";
 import { submitVote } from "@/lib/actions";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
