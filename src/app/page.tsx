@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center space-y-8 py-12">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight text-brand-primary">Oscar Predictions 2025</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-brand-primary">Oscar Predictions 2026</h1>
         <p className="text-xl text-muted-foreground max-w-2xl">
-          Predict the winners of the 2025 Academy Awards and see how your picks stack up!
+          Predict the winners of the 2026 Academy Awards and see how your picks stack up!
         </p>
       </div>
 
