@@ -8,90 +8,96 @@ type NomineeImageMap = {
 
 const nomineeImageMap: NomineeImageMap = {
   // Films
-  "Anora": "https://m.media-amazon.com/images/I/61j3bu9I2HL._AC_UF894,1000_QL80_.jpg",
-  "The Brutalist": "https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/1729559725932-JVNTP5CLW1FKJYTP78GW/The%2BBrutalist%2B3.jpg?format=750w",
-  "A Complete Unknown": "https://lumiere-a.akamaihd.net/v1/images/au_movies_20cs_acompleteunknown_payoff_m_ce1913b4.jpeg",
-  "Conclave": "https://www.mauvais-genres.com/47731-large_default/conclave-original-french-movie-poster-15x21-in-2024-edward-berger-ralph-fiennes.jpg",
-  "Dune: Part Two": "https://i.ebayimg.com/images/g/t24AAOSws2NlwgIb/s-l1200.jpg",
-  "Emilia Pérez": "https://m.media-amazon.com/images/M/MV5BNjBhMWVmYjQtYmI2NC00NjdiLTliMjQtODliYjI5OTZmMzczXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg",
-  "I'm Still Here": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/202/2025/01/10141344/SONY-STHMI-16_Family_DigitalPoster_1934x2866-scaled.jpg",
-  "Nickel Boys": "https://images.randomhouse.com/cover/9780385537070",
-  "The Substance": "https://image.tmdb.org/t/p/original/cGm2qnmXx9tFabmzEIkJZjCJdQd.jpg",
-  "Wicked": "https://m.media-amazon.com/images/I/81cmJpAKEVL.jpg",
-  "A Real Pain": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2025/01/06110037/38lb62nJcNvVgCDkFt2wiVE0bX4-scaled.jpg",
-  "September 5": "https://static1.tribute.ca/poster/660x980/september-5-193983.jpg",
-  "Flow": "https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_.jpg",
-  "The Girl With the Needle": "https://resizing.flixster.com/1T8IA0wiy1ugg2njG4QxaHhzrVw=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzM5YjMwMDI4LTczNmYtNGQwMC1iY2EzLTRhMThjYjIxMGVjMi5qcGc=",
-  "The Seed of the Sacred Fig": "https://m.media-amazon.com/images/M/MV5BMmYxMTlmODQtZTUyOS00YWE3LWFjYTktOWU4ZjU3ZGYwZDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Inside Out 2": "https://m.media-amazon.com/images/I/714xn6rxXSL.jpg",
-  "Memoir of a Snail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsKYo304vPuR5MwsCdH3LVFWPzZ-nYgKpntg&s",
-  "Wallace & Gromit: Vengeance Most Fowl": "https://m.media-amazon.com/images/M/MV5BMTk3M2YwMGUtZDJiZS00MDNkLWIyZDEtY2VjMWYyZDFmZjMzXkEyXkFqcGc@._V1_QL75_UY281_CR18,0,190,281_.jpg",
-  "The Wild Robot": "https://m.media-amazon.com/images/I/712zpgXz3SL._AC_UF894,1000_QL80_.jpg",
-  "Black Box Diaries": "https://m.media-amazon.com/images/M/MV5BZjM4Y2VmYTYtMDY1OS00MjYyLTg0ZTctNTE3MmJmNjJiYTZlXkEyXkFqcGc@._V1_.jpg",
-  "No Other Land": "https://images.ctfassets.net/22n7d68fswlw/74Z5tFMThtzvpQdGprXZwF/708f9c2850e6c24595fe6b9bed269ffd/No-Other-Land_Poster.jpg",
-  "Porcelain War": "https://m.media-amazon.com/images/M/MV5BZjkxMTQ3YWMtYmE3My00MDZlLWE1MGEtNmM2NDMzMTljNDczXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Soundtrack to a Coup d'Etat": "https://m.media-amazon.com/images/M/MV5BOWIzNmIxYTUtMTdiMi00Zjk2LWJlYjktMzA5ZTA3YTExY2VkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Sugarcane": "https://slcc.ca/wp-content/uploads/2024/08/Sugarcane-Final-Key-Art_LR.jpg",
-  "Maria": "https://m.media-amazon.com/images/M/MV5BMmJlZTkzOWMtYjBmMi00MWY2LTg0YTUtNGUzZjI0MzgxYTY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Nosferatu": "https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Gladiator II": "https://i.ebayimg.com/images/g/DLwAAOSwfklml4Q2/s-l400.jpg",
-  "A Different Man": "https://m.media-amazon.com/images/M/MV5BYTQ0NDI2NzItZjNiOC00ZDc0LWJiNGMtMzZmMGM2NmVjMmJkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Alien: Romulus": "https://m.media-amazon.com/images/I/614lcZY032L.jpg",
-  "Better Man": "https://preview.redd.it/official-poster-for-the-robbie-williams-biopic-better-man-v0-5p3vahyz6wxd1.jpeg?auto=webp&s=4d6d74bb66e5fe0560386c5c49987ebe06052fe3",
-  "Kingdom of the Planet of the Apes": "https://i.ebayimg.com/images/g/zzgAAOSwxuNmMmk7/s-l1200.jpg",
-  "Sing Sing": "https://lh6.googleusercontent.com/proxy/oge2WrWhMJgfdMCPpLHqVKQbQUJArom76ePlBLar9lsy7c1RTlcv3uSzR7gC1LOJq4_zWvu12sBTz4WCSUt92H1NwH31rGoIBOs_VvLvNczBZm_I7HyjVcuW64TeB-6KecPdWHR49Fw",
-  "The Apprentice": "https://static1.tribute.ca/poster/660x980/the-apprentice-189209.jpg",
+  "Bugonia": "https://m.media-amazon.com/images/M/MV5BMjA0NjE1ODEyOV5BMl5BanBnXkFtZTgwMTU2MzE5MjE@._V1_.jpg",
+  "F1": "http://googleusercontent.com/image_collection/image_retrieval/9296402981186291266_0",
+  "Frankenstein": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00ZTI3LWFmY2ItYmI3OTRkZGJlYmE0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+  "Hamnet": "http://googleusercontent.com/image_collection/image_retrieval/990397926979045448_0",
+  "Marty Supreme": "http://googleusercontent.com/image_collection/image_retrieval/14981673769868364267_0",
+  "One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/1137321586824917182_0",
+  "The Secret Agent": "http://googleusercontent.com/image_collection/image_retrieval/13106216572033913568_0",
+  "Sentimental Value": "http://googleusercontent.com/image_collection/image_retrieval/1471591560733212705_0",
+  "Sinners": "http://googleusercontent.com/image_collection/image_retrieval/11136746451385087334_0",
+  "Train Dreams": "https://m.media-amazon.com/images/M/MV5BMjE0MzM1OTYxMF5BMl5BanBnXkFtZTgwODUxNzM5MjE@._V1_.jpg",
+  "Blue Moon": "http://googleusercontent.com/image_collection/image_retrieval/10284572368718130915_0",
+  "It Was Just an Accident": "http://googleusercontent.com/image_collection/image_retrieval/1277721917390754834_0",
+  "Arco": "http://googleusercontent.com/image_collection/image_retrieval/15813885891867316418_0",
+  "Elio": "https://m.media-amazon.com/images/M/MV5BMTY1MTU3MzA5N15BMl5BanBnXkFtZTgwMDUyMDY5MjE@._V1_.jpg",
+  "KPop Demon Hunters": "http://googleusercontent.com/image_collection/image_retrieval/14624802582445357860_0",
+  "Little Amélie or the Character of Rain": "http://googleusercontent.com/image_collection/image_retrieval/5597476944767183252_0",
+  "Zootopia 2": "https://m.media-amazon.com/images/M/MV5BNTljYjU2YmQtMDZlYy00NDY4LTk2YmYtNjdiZDFmYTEwMDcyXkEyXkFqcGdeQXVyMTU5OTA4NTIz._V1_.jpg",
+  "The Alabama Solution": "http://googleusercontent.com/image_collection/image_retrieval/1471591560733213320_0",
+  "Come See Me in the Good Light": "http://googleusercontent.com/image_collection/image_retrieval/9039950155673370837_0",
+  "Cutting Through Rocks": "http://googleusercontent.com/image_collection/image_retrieval/14403687113789459537_0",
+  "Mr. Nobody Against Putin": "http://googleusercontent.com/image_collection/image_retrieval/14228814662340770524_0",
+  "The Perfect Neighbor": "http://googleusercontent.com/image_collection/image_retrieval/11157308631258307754_0",
+  "Avatar: Fire and Ash": "http://googleusercontent.com/image_collection/image_retrieval/15675883116268739208_0",
+  "Jurassic World Rebirth": "http://googleusercontent.com/image_collection/image_retrieval/9296402981186291266_0",
+  "The Lost Bus": "http://googleusercontent.com/image_collection/image_retrieval/12754421267116179529_0",
+  "Kokuho": "http://googleusercontent.com/image_collection/image_retrieval/8987240673366767533_0",
+  "The Smashing Machine": "http://googleusercontent.com/image_collection/image_retrieval/13106216572033913568_0",
+  "The Ugly Stepsister": "http://googleusercontent.com/image_collection/image_retrieval/9912207886271818746_0",
+  "If I Had Legs I'd Kick You": "http://googleusercontent.com/image_collection/image_retrieval/10178215806985474751_0",
+  "Song Sung Blue": "http://googleusercontent.com/image_collection/image_retrieval/9829794698729239943_0",
+  "Weapons": "http://googleusercontent.com/image_collection/image_retrieval/15795443810630973928_0",
+  "Sirât": "http://googleusercontent.com/image_collection/image_retrieval/7312417054639243953_0",
+
+  // International Feature (with country)
+  "It Was Just an Accident (France)": "http://googleusercontent.com/image_collection/image_retrieval/1277721917390754834_0",
+  "The Secret Agent (Brazil)": "https://m.media-amazon.com/images/M/MV5BNGEyOGJiN2MtM2ExYS00NDRiLThjYmItYmRkMjY2YTg4Nzc1XkEyXkFqcGdeQXVyMTAzOTYyMDI2._V1_.jpg",
+  "Sentimental Value (Norway)": "http://googleusercontent.com/image_collection/image_retrieval/1471591560733212705_0",
+  "Sirât (Spain)": "http://googleusercontent.com/image_collection/image_retrieval/7312417054639243953_0",
+  "The Voice of Hind Rajab (Tunisia)": "http://googleusercontent.com/image_collection/image_retrieval/11157308631258305963_0",
 
   // Songs
-  "\"El Mal,\" Emilia Pérez": "https://m.media-amazon.com/images/M/MV5BNjBhMWVmYjQtYmI2NC00NjdiLTliMjQtODliYjI5OTZmMzczXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg",
-  "\"The Journey,\" The Six Triple Eight": "https://m.media-amazon.com/images/M/MV5BNDdhYTY4ZTEtZTlhZS00ZWI1LWFjYzQtMWRkMjIzN2E5NjBjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "\"Like a Bird,\" Sing Sing": "https://lh6.googleusercontent.com/proxy/oge2WrWhMJgfdMCPpLHqVKQbQUJArom76ePlBLar9lsy7c1RTlcv3uSzR7gC1LOJq4_zWvu12sBTz4WCSUt92H1NwH31rGoIBOs_VvLvNczBZm_I7HyjVcuW64TeB-6KecPdWHR49Fw",
-  "\"Mi Camino,\" Emilia Pérez": "https://m.media-amazon.com/images/M/MV5BNjBhMWVmYjQtYmI2NC00NjdiLTliMjQtODliYjI5OTZmMzczXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg",
-  "\"Never Too Late,\" Elton John: Never Too Late": "https://m.media-amazon.com/images/M/MV5BMDMyOTI1OGMtZjM4Ni00YzMxLThkZmItYWU4MjUwM2RlZTAwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+  "\"Dear Me,\" Diane Warren: Relentless": "http://googleusercontent.com/image_collection/image_retrieval/9422230707874237332_0",
+  "\"Golden,\" KPop Demon Hunters": "http://googleusercontent.com/image_collection/image_retrieval/14624802582445357860_0",
+  "\"I Lied to You,\" Sinners": "http://googleusercontent.com/image_collection/image_retrieval/11136746451385087334_0",
+  "\"Sweet Dreams of Joy,\" Viva Verdi!": "https://m.media-amazon.com/images/M/MV5BMTY3MTI5NjQ4N15BMl5BanBnXkFtZTgwODE3NTE0MzE@._V1_.jpg",
+  "\"Train Dreams,\" Train Dreams": "https://m.media-amazon.com/images/M/MV5BMjE0MzM1OTYxMF5BMl5BanBnXkFtZTgwODUxNzM5MjE@._V1_.jpg",
 
   // People
-  "Jacques Audiard, Emilia Pérez": "https://m.media-amazon.com/images/M/MV5BNjBhMWVmYjQtYmI2NC00NjdiLTliMjQtODliYjI5OTZmMzczXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg",
-  "Sean Baker, Anora": "https://m.media-amazon.com/images/I/61j3bu9I2HL._AC_UF894,1000_QL80_.jpg",
-  "Brady Corbet, The Brutalist": "https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/1729559725932-JVNTP5CLW1FKJYTP78GW/The%2BBrutalist%2B3.jpg?format=750w",
-  "Coralie Fargeat, The Substance": "https://image.tmdb.org/t/p/original/cGm2qnmXx9tFabmzEIkJZjCJdQd.jpg",
-  "James Mangold, A Complete Unknown": "https://lumiere-a.akamaihd.net/v1/images/au_movies_20cs_acompleteunknown_payoff_m_ce1913b4.jpeg",
-  "Cynthia Erivo, Wicked": "https://m.media-amazon.com/images/M/MV5BMTcyMTI3NzI1Nl5BMl5BanBnXkFtZTgwNjQ3Njk2NjM@._V1_.jpg",
-  "Karla Sofía Gascón, Emilia Pérez": "https://i.guim.co.uk/img/media/c0c552b6ffa98c7d1986a1c64b4b033d596cfb64/0_103_3101_1862/master/3101.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=0d955d1cd3880a7abc98ba0299268b9f",
-  "Mikey Madison, Anora": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Mikey_Madison_at_the_2024_New_York_Film_Festival_2_%28cropped_3%29.jpg",
-  "Demi Moore, The Substance": "https://m.media-amazon.com/images/M/MV5BMTc2Mjc1MDE4MV5BMl5BanBnXkFtZTcwNzAyNDczNA@@._V1_.jpg",
-  "Fernanda Torres, I'm Still Here": "https://i.abcnewsfe.com/a/158714f0-566a-4c51-9ca7-1d23e0bacacd/im-still-here-01-ht-jef-250116_1737062374789_hpMain.jpg",
-  "Adrien Brody, The Brutalist": "https://media.themoviedb.org/t/p/w500/qBc7ahQrpVpcllaZ5hkivsOEb3C.jpg",
-  "Timothée Chalamet, A Complete Unknown": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Timoth%C3%A9e_Chalamet-63482_%28cropped%29.jpg/640px-Timoth%C3%A9e_Chalamet-63482_%28cropped%29.jpg",
-  "Colman Domingo, Sing Sing": "https://m.media-amazon.com/images/M/MV5BMmI2NTQ4YmItYWZmMS00ZjE0LWEyZGItZWFhZmRmY2QxZjljXkEyXkFqcGc@._V1_.jpg",
-  "Ralph Fiennes, Conclave": "https://m.media-amazon.com/images/M/MV5BMzc5MjE1NDgyN15BMl5BanBnXkFtZTcwNzg2ODgwNA@@._V1_FMjpg_UX1000_.jpg",
-  "Sebastian Stan, The Apprentice": "https://m.media-amazon.com/images/M/MV5BMWEwYjgxMDQtYmRkOS00MGFiLThjMzMtZGQ2ZjBhMTcyOWNlXkEyXkFqcGc@._V1_.jpg",
-  "Monica Barbaro, A Complete Unknown": "https://m.media-amazon.com/images/M/MV5BMzAzNWM1NTgtNzhhMS00OTVmLWI0ZmUtMTMwMjkyMjdkOTUxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-  "Ariana Grande, Wicked": "https://hips.hearstapps.com/hmg-prod/images/ariana-grande-attends-the-wsj-magazine-2024-innovator-news-photo-1733523847.jpg",
-  "Felicity Jones, The Brutalist": "https://m.media-amazon.com/images/M/MV5BMjA0MTIwMzIyN15BMl5BanBnXkFtZTgwNDEyMzg1NDE@._V1_.jpg",
-  "Isabella Rossellini, Conclave": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Isabella_Rossellini_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Isabella_Rossellini_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg",
-  "Zoe Saldaña, Emilia Pérez": "https://m.media-amazon.com/images/M/MV5BMDFkMWQ5ZDItNGUzNS00YzI4LWIyOTctMDk0Mjc3MGQyZTYxXkEyXkFqcGc@._V1_.jpg",
-  "Yura Borisov, Anora": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Yura_Borisov_at_the_2024_Toronto_International_Film_Festival_%28Cropped%29.jpg/800px-Yura_Borisov_at_the_2024_Toronto_International_Film_Festival_%28Cropped%29.jpg",
-  "Kieran Culkin, A Real Pain": "https://upload.wikimedia.org/wikipedia/commons/d/dc/ARealPainBFILFF131024_%2882_of_138%29_%2854065186044%29_%28cropped%29_%28cropped%29.jpg",
-  "Edward Norton, A Complete Unknown": "https://m.media-amazon.com/images/M/MV5BMTYwNjQ5MTI1NF5BMl5BanBnXkFtZTcwMzU5MTI2Mw@@._V1_FMjpg_UX1000_.jpg",
-  "Guy Pearce, The Brutalist": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Crew_members_of_the_movie_%22Genius%22_at_the_Berlinale_party_%2825036107966%29_%28cropped%29.jpg/220px-Crew_members_of_the_movie_%22Genius%22_at_the_Berlinale_party_%2825036107966%29_%28cropped%29.jpg",
-  "Jeremy Strong, The Apprentice": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Jeremy_Strong_at_%22The_Apprentice%22_in_NYC_01_%28cropped%29.jpg/640px-Jeremy_Strong_at_%22The_Apprentice%22_in_NYC_01_%28cropped%29.jpg",
+  "Ryan Coogler, Sinners": "http://googleusercontent.com/image_collection/image_retrieval/16890138806989658476_0",
+  "Paul Thomas Anderson, One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/7617765713793843238_0",
+  "Chloé Zhao, Hamnet": "http://googleusercontent.com/image_collection/image_retrieval/5976038535471554125_0",
+  "Josh Safdie, Marty Supreme": "https://m.media-amazon.com/images/M/MV5BMTY3MTI5NjQ4N15BMl5BanBnXkFtZTgwODE3NTE0MzE@._V1_.jpg",
+  "Joachim Trier, Sentimental Value": "https://m.media-amazon.com/images/M/MV5BNzA3MDY0NTYtZDRiYS00ZWEzLWI1ZTgtZjY5YjU3Mzg3NjYyXkEyXkFqcGdeQXVyMTAzOTYyMDI2._V1_.jpg",
+  "Jessie Buckley, Hamnet": "http://googleusercontent.com/image_collection/image_retrieval/5521225347820672779_0",
+  "Rose Byrne, If I Had Legs I'd Kick You": "http://googleusercontent.com/image_collection/image_retrieval/15675883116268739565_0",
+  "Kate Hudson, Song Sung Blue": "http://googleusercontent.com/image_collection/image_retrieval/12988219565131072739_0",
+  "Renate Reinsve, Sentimental Value": "http://googleusercontent.com/image_collection/image_retrieval/1471591560733212705_0",
+  "Emma Stone, Bugonia": "https://m.media-amazon.com/images/M/MV5BMjI4NjM1NDkyN15BMl5BanBnXkFtZTgwNDgzNTE1MjE@._V1_.jpg",
+  "Timothée Chalamet, Marty Supreme": "https://m.media-amazon.com/images/M/MV5BZjE0ZTliNWYtZmNhYi00M2I1LWEzYmYtM2ZlZWJmN2RjY2MzXkEyXkFqcGdeQXVyMTAzOTYyMDI2._V1_.jpg",
+  "Leonardo DiCaprio, One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/6977583245625984506_0",
+  "Ethan Hawke, Blue Moon": "http://googleusercontent.com/image_collection/image_retrieval/15813885891867319823_0",
+  "Michael B. Jordan, Sinners": "http://googleusercontent.com/image_collection/image_retrieval/10971666971567161244_0",
+  "Wagner Moura, The Secret Agent": "http://googleusercontent.com/image_collection/image_retrieval/13106216572033916793_0",
+  "Elle Fanning, Sentimental Value": "http://googleusercontent.com/image_collection/image_retrieval/14367465918227758903_0",
+  "Inga Ibsdotter Lilleaas, Sentimental Value": "http://googleusercontent.com/image_collection/image_retrieval/975406302689469380_0",
+  "Amy Madigan, Weapons": "http://googleusercontent.com/image_collection/image_retrieval/4437532020604150002_0",
+  "Wunmi Mosaku, Sinners": "http://googleusercontent.com/image_collection/image_retrieval/9829794698729239816_0",
+  "Teyana Taylor, One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/4602385917511146270_0",
+  "Jacob Elordi, Frankenstein": "http://googleusercontent.com/image_collection/image_retrieval/10178215806985478048_0",
+  "Delroy Lindo, Sinners": "http://googleusercontent.com/image_collection/image_retrieval/8790239573611720253_0",
+  "Sean Penn, One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/13776825327530826508_0",
+  "Stellan Skarsgård, Sentimental Value": "http://googleusercontent.com/image_collection/image_retrieval/6009376513686548631_0",
+  "Benicio del Toro, One Battle After Another": "http://googleusercontent.com/image_collection/image_retrieval/9422230707874237609_0",
 
   // Shorts
-  "Beautiful Men": "",
-  "In the Shadow of the Cypress": "",
-  "Magic Candies": "",
-  "Wander to Wonder": "",
-  "Yuck!": "",
-  "A Lien": "",
-  "Anuja": "",
-  "I'm Not a Robot": "",
-  "The Last Ranger": "",
-  "The Man Who Could Not Remain Silent": "",
-  "Death by Numbers": "",
-  "I Am Ready, Warden": "",
-  "Incident": "",
-  "Instruments of a Beating Heart": "",
-  "The Only Girl in the Orchestra": ""
+  "Butterfly": "https://m.media-amazon.com/images/M/MV5BMjE0MzM1OTYxMF5BMl5BanBnXkFtZTgwODUxNzM5MjE@._V1_.jpg",
+  "Forevergreen": "http://googleusercontent.com/image_collection/image_retrieval/15813885891867316418_0",
+  "The Girl Who Cried Pearls": "http://googleusercontent.com/image_collection/image_retrieval/5597476944767183252_0",
+  "Retirement Plan": "http://googleusercontent.com/image_collection/image_retrieval/14624802582445357860_0",
+  "The Three Sisters": "https://m.media-amazon.com/images/M/MV5BNTljYjU2YmQtMDZlYy00NDY4LTk2YmYtNjdiZDFmYTEwMDcyXkEyXkFqcGdeQXVyMTU5OTA4NTIz._V1_.jpg",
+  "Butcher's Stain": "http://googleusercontent.com/image_collection/image_retrieval/11157308631258305963_0",
+  "A Friend of Dorothy": "http://googleusercontent.com/image_collection/image_retrieval/10178215806985474751_0",
+  "Jane Austen's Period Drama": "http://googleusercontent.com/image_collection/image_retrieval/9912207886271818746_0",
+  "The Singers": "http://googleusercontent.com/image_collection/image_retrieval/9829794698729239943_0",
+  "Two People Exchanging Saliva": "http://googleusercontent.com/image_collection/image_retrieval/1277721917390754834_0",
+  "All the Empty Rooms": "http://googleusercontent.com/image_collection/image_retrieval/1471591560733213320_0",
+  "Armed Only with a Camera: The Life and Death of Brent Renaud": "http://googleusercontent.com/image_collection/image_retrieval/14228814662340770524_0",
+  "Children No More: Were and Are Gone": "http://googleusercontent.com/image_collection/image_retrieval/11157308631258307754_0",
+  "The Devil Is Busy": "http://googleusercontent.com/image_collection/image_retrieval/14403687113789459537_0",
+  "Perfectly a Strangeness": "http://googleusercontent.com/image_collection/image_retrieval/9039950155673370837_0"
 };
 
 async function main() {
@@ -117,258 +123,269 @@ async function main() {
       name: "BEST PICTURE",
       order: 1,
       nominees: [
-        "Anora",
-        "The Brutalist",
-        "A Complete Unknown",
-        "Conclave",
-        "Dune: Part Two",
-        "Emilia Pérez",
-        "I'm Still Here",
-        "Nickel Boys",
-        "The Substance",
-        "Wicked"
+        "Bugonia",
+        "F1",
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle After Another",
+        "The Secret Agent",
+        "Sentimental Value",
+        "Sinners",
+        "Train Dreams"
       ]
     },
     {
       name: "DIRECTOR",
       order: 2,
       nominees: [
-        "Jacques Audiard, Emilia Pérez",
-        "Sean Baker, Anora",
-        "Brady Corbet, The Brutalist",
-        "Coralie Fargeat, The Substance",
-        "James Mangold, A Complete Unknown"
+        "Ryan Coogler, Sinners",
+        "Paul Thomas Anderson, One Battle After Another",
+        "Chloé Zhao, Hamnet",
+        "Josh Safdie, Marty Supreme",
+        "Joachim Trier, Sentimental Value"
       ]
     },
     {
       name: "ACTRESS IN A LEADING ROLE",
       order: 3,
       nominees: [
-        "Cynthia Erivo, Wicked",
-        "Karla Sofía Gascón, Emilia Pérez",
-        "Mikey Madison, Anora",
-        "Demi Moore, The Substance",
-        "Fernanda Torres, I'm Still Here"
+        "Jessie Buckley, Hamnet",
+        "Rose Byrne, If I Had Legs I'd Kick You",
+        "Kate Hudson, Song Sung Blue",
+        "Renate Reinsve, Sentimental Value",
+        "Emma Stone, Bugonia"
       ]
     },
     {
       name: "ACTOR IN A LEADING ROLE",
       order: 4,
       nominees: [
-        "Adrien Brody, The Brutalist",
-        "Timothée Chalamet, A Complete Unknown",
-        "Colman Domingo, Sing Sing",
-        "Ralph Fiennes, Conclave",
-        "Sebastian Stan, The Apprentice"
+        "Timothée Chalamet, Marty Supreme",
+        "Leonardo DiCaprio, One Battle After Another",
+        "Ethan Hawke, Blue Moon",
+        "Michael B. Jordan, Sinners",
+        "Wagner Moura, The Secret Agent"
       ]
     },
     {
       name: "ACTRESS IN A SUPPORTING ROLE",
       order: 5,
       nominees: [
-        "Monica Barbaro, A Complete Unknown",
-        "Ariana Grande, Wicked",
-        "Felicity Jones, The Brutalist",
-        "Isabella Rossellini, Conclave",
-        "Zoe Saldaña, Emilia Pérez"
+        "Elle Fanning, Sentimental Value",
+        "Inga Ibsdotter Lilleaas, Sentimental Value",
+        "Amy Madigan, Weapons",
+        "Wunmi Mosaku, Sinners",
+        "Teyana Taylor, One Battle After Another"
       ]
     },
     {
       name: "ACTOR IN A SUPPORTING ROLE",
       order: 6,
       nominees: [
-        "Yura Borisov, Anora",
-        "Kieran Culkin, A Real Pain",
-        "Edward Norton, A Complete Unknown",
-        "Guy Pearce, The Brutalist",
-        "Jeremy Strong, The Apprentice"
+        "Jacob Elordi, Frankenstein",
+        "Delroy Lindo, Sinners",
+        "Sean Penn, One Battle After Another",
+        "Stellan Skarsgård, Sentimental Value",
+        "Benicio del Toro, One Battle After Another"
       ]
     },
     {
       name: "ORIGINAL SCREENPLAY",
       order: 7,
       nominees: [
-        "Anora",
-        "A Real Pain",
-        "The Brutalist",
-        "September 5",
-        "The Substance"
+        "Blue Moon",
+        "It Was Just an Accident",
+        "Marty Supreme",
+        "Sentimental Value",
+        "Sinners"
       ]
     },
     {
       name: "ADAPTED SCREENPLAY",
       order: 8,
       nominees: [
-        "A Complete Unknown",
-        "Conclave",
-        "Emilia Pérez",
-        "Nickel Boys",
-        "Sing Sing"
+        "Bugonia",
+        "Frankenstein",
+        "Hamnet",
+        "One Battle After Another",
+        "Train Dreams"
+      ]
+    },
+    {
+      name: "CASTING",
+      order: 9,
+      nominees: [
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle After Another",
+        "The Secret Agent",
+        "Sinners"
       ]
     },
     {
       name: "INTERNATIONAL FEATURE",
-      order: 9,
+      order: 10,
       nominees: [
-        "Emilia Pérez",
-        "Flow",
-        "The Girl With the Needle",
-        "I'm Still Here",
-        "The Seed of the Sacred Fig"
+        "It Was Just an Accident (France)",
+        "The Secret Agent (Brazil)",
+        "Sentimental Value (Norway)",
+        "Sirât (Spain)",
+        "The Voice of Hind Rajab (Tunisia)"
       ]
     },
     {
       name: "ANIMATED FEATURE",
-      order: 10,
+      order: 11,
       nominees: [
-        "Flow",
-        "Inside Out 2",
-        "Memoir of a Snail",
-        "Wallace & Gromit: Vengeance Most Fowl",
-        "The Wild Robot"
+        "Arco",
+        "Elio",
+        "KPop Demon Hunters",
+        "Little Amélie or the Character of Rain",
+        "Zootopia 2"
       ]
     },
     {
       name: "DOCUMENTARY FEATURE",
-      order: 11,
+      order: 12,
       nominees: [
-        "Black Box Diaries",
-        "No Other Land",
-        "Porcelain War",
-        "Soundtrack to a Coup d'Etat",
-        "Sugarcane"
+        "The Alabama Solution",
+        "Come See Me in the Good Light",
+        "Cutting Through Rocks",
+        "Mr. Nobody Against Putin",
+        "The Perfect Neighbor"
       ]
     },
     {
       name: "ORIGINAL SCORE",
-      order: 12,
+      order: 13,
       nominees: [
-        "The Brutalist",
-        "Conclave",
-        "Emilia Pérez",
-        "Wicked",
-        "The Wild Robot"
+        "Bugonia",
+        "Frankenstein",
+        "Hamnet",
+        "One Battle After Another",
+        "Sinners"
       ]
     },
     {
       name: "ORIGINAL SONG",
-      order: 13,
+      order: 14,
       nominees: [
-        "\"El Mal,\" Emilia Pérez",
-        "\"The Journey,\" The Six Triple Eight",
-        "\"Like a Bird,\" Sing Sing",
-        "\"Mi Camino,\" Emilia Pérez",
-        "\"Never Too Late,\" Elton John: Never Too Late"
+        "\"Dear Me,\" Diane Warren: Relentless",
+        "\"Golden,\" KPop Demon Hunters",
+        "\"I Lied to You,\" Sinners",
+        "\"Sweet Dreams of Joy,\" Viva Verdi!",
+        "\"Train Dreams,\" Train Dreams"
       ]
     },
     {
       name: "CINEMATOGRAPHY",
-      order: 14,
+      order: 15,
       nominees: [
-        "The Brutalist",
-        "Dune: Part Two",
-        "Emilia Pérez",
-        "Maria",
-        "Nosferatu"
+        "Frankenstein",
+        "Marty Supreme",
+        "One Battle After Another",
+        "Sinners",
+        "Train Dreams"
       ]
     },
     {
       name: "COSTUME DESIGN",
-      order: 15,
+      order: 16,
       nominees: [
-        "A Complete Unknown",
-        "Conclave",
-        "Gladiator II",
-        "Nosferatu",
-        "Wicked"
+        "Avatar: Fire and Ash",
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "Sinners"
       ]
     },
     {
       name: "EDITING",
-      order: 16,
+      order: 17,
       nominees: [
-        "Anora",
-        "The Brutalist",
-        "Conclave",
-        "Emilia Pérez",
-        "Wicked"
+        "F1",
+        "Marty Supreme",
+        "One Battle After Another",
+        "Sentimental Value",
+        "Sinners"
       ]
     },
     {
       name: "MAKEUP AND HAIRSTYLING",
-      order: 17,
+      order: 18,
       nominees: [
-        "A Different Man",
-        "Emilia Pérez",
-        "Nosferatu",
-        "The Substance",
-        "Wicked"
+        "Frankenstein",
+        "Kokuho",
+        "Sinners",
+        "The Smashing Machine",
+        "The Ugly Stepsister"
       ]
     },
     {
       name: "PRODUCTION DESIGN",
-      order: 18,
+      order: 19,
       nominees: [
-        "The Brutalist",
-        "Conclave",
-        "Dune: Part Two",
-        "Nosferatu",
-        "Wicked"
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle After Another",
+        "Sinners"
       ]
     },
     {
       name: "SOUND",
-      order: 19,
+      order: 20,
       nominees: [
-        "A Complete Unknown",
-        "Dune: Part Two",
-        "Emilia Pérez",
-        "Wicked",
-        "The Wild Robot"
+        "F1",
+        "Frankenstein",
+        "One Battle After Another",
+        "Sinners",
+        "Sirât"
       ]
     },
     {
       name: "VISUAL EFFECTS",
-      order: 20,
+      order: 21,
       nominees: [
-        "Alien: Romulus",
-        "Better Man",
-        "Dune: Part Two",
-        "Kingdom of the Planet of the Apes",
-        "Wicked"
+        "Avatar: Fire and Ash",
+        "F1",
+        "Jurassic World Rebirth",
+        "The Lost Bus",
+        "Sinners"
       ]
     },
     {
       name: "ANIMATED SHORT",
-      order: 21,
+      order: 22,
       nominees: [
-        "Beautiful Men",
-        "In the Shadow of the Cypress",
-        "Magic Candies",
-        "Wander to Wonder",
-        "Yuck!"
+        "Butterfly",
+        "Forevergreen",
+        "The Girl Who Cried Pearls",
+        "Retirement Plan",
+        "The Three Sisters"
       ]
     },
     {
       name: "LIVE-ACTION SHORT",
-      order: 22,
+      order: 23,
       nominees: [
-        "A Lien",
-        "Anuja",
-        "I'm Not a Robot",
-        "The Last Ranger",
-        "The Man Who Could Not Remain Silent"
+        "Butcher's Stain",
+        "A Friend of Dorothy",
+        "Jane Austen's Period Drama",
+        "The Singers",
+        "Two People Exchanging Saliva"
       ]
     },
     {
       name: "DOCUMENTARY SHORT",
-      order: 23,
+      order: 24,
       nominees: [
-        "Death by Numbers",
-        "I Am Ready, Warden",
-        "Incident",
-        "Instruments of a Beating Heart",
-        "The Only Girl in the Orchestra"
+        "All the Empty Rooms",
+        "Armed Only with a Camera: The Life and Death of Brent Renaud",
+        "Children No More: Were and Are Gone",
+        "The Devil Is Busy",
+        "Perfectly a Strangeness"
       ]
     }
   ];
