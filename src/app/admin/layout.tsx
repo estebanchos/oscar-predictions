@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin - Oscar Predictions 2025",
-  description: "Admin dashboard for Oscar Predictions 2025",
+  title: "Admin - Oscar Predictions 2026",
+  description: "Admin dashboard for Oscar Predictions 2026",
 };
 
 export default function AdminLayout({

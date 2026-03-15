@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oscar Predictions 2025",
-  description: "Predict the winners of the 2025 Oscars and see how you score!",
+  title: "Oscar Predictions 2026",
+  description: "Predict the winners of the 2026 Oscars and see how you score!",
 };
 
 export default function RootLayout({
