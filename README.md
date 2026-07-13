@@ -14,6 +14,17 @@ picks are holding up as the results roll in on Oscar night.
 Built with the Next.js App Router, React Server Components, and a type-safe
 Prisma/PostgreSQL backend.
 
+## 🚧 Roadmap
+
+Planned upgrades to make the app reusable season after season:
+
+- **Flexible data model** — Restructure the schema so category changes that happen
+  year over year (new categories, renames, retirements) are handled by data, not
+  code.
+- **In-app content management** — Add and update categories and nominees directly
+  through an admin upload flow, removing the need to edit and redeploy code each
+  year.
+
 ## Features
 
 - **🗳️ Make predictions** — Players enter their name and pick a winner across all
@@ -67,16 +78,6 @@ See [`.env.example`](./.env.example) for the environment variables the app requi
 4. The leaderboard scores every ballot against the announced winners and ranks
    players live.
 
-## 🚧 Roadmap
-
-Planned upgrades to make the app reusable season after season:
-
-- **Flexible data model** — Restructure the schema so category changes that happen
-  year over year (new categories, renames, retirements) are handled by data, not
-  code.
-- **In-app content management** — Add and update categories and nominees directly
-  through an admin upload flow, removing the need to edit and redeploy code each
-  year.
 
 ## License
 
